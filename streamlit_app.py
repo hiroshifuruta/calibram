@@ -1,3 +1,4 @@
+import streamlit as st
 import numpy as np
 
 class LinearRegression:
@@ -23,11 +24,20 @@ class LinearRegression:
 
 lr = LinearRegression()
 
+st.write("target value Raman_shift_Si = 520")
+Raman_shift_Si = 520
+
+y0 = float(st.number_input("Enter y_zero_coeff: "))
+x0 = float(st.number_input("Enter x_Si_raman_shift: "))
+lr.add_data(x0, y0)
+
 while True:
-    x = float(input("Enter x: "))
-    y = float(input("Enter y: "))
+    y = float(st.number_input("Enter y_zero_coeff: "))
+    if(y == 0 or y == ""):
+        break
+    x = float(st.number_input("Enter x_Si_raman_shift: "))
     lr.add_data(x, y)
     lr.fit()
-    x0 = float(input("Enter x0: "))
-    y0 = lr.predict(x0)
-    print(f"Estimated y0: {y0:.2f}")
+    xt = 520
+    yt = lr.predict(xt)
+    st.write(f"Estimated yt_Zero_coeff: {yt:.2f}")

@@ -1,2 +1,2 @@
 # calibram
-Calibrate Raman
+Calibrate Raman spectroscopy

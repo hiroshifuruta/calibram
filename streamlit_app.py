@@ -27,8 +27,8 @@ lr = LinearRegression()
 st.write("target value Raman_shift_Si = 520")
 Raman_shift_Si = 520
 
-y0 = float(st.number_input("Enter y_zero_coeff: "))
-x0 = float(st.number_input("Enter x_Si_raman_shift: "))
+y0 = float(st.number_input("Enter y_zero_coeff: "), value=0.0)
+x0 = float(st.number_input("Enter x_Si_raman_shift: "), value=Raman_shift_Si)
 lr.add_data(x0, y0)
 
 while True:

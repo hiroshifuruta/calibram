@@ -38,4 +38,4 @@ lr.fit()
 xt = 520
 yt = lr.predict(xt)
 st.write(f"Estimated yt_Zero_coeff: {yt:.2f}")
-st.table(lr.beta)
+#st.table(lr.beta)

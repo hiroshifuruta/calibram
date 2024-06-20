@@ -28,11 +28,11 @@ st.write("target value Raman_shift_Si = 520")
 Raman_shift_Si = 520
 
 y0 = float(st.number_input("Enter y_zero_coeff1: ", value=830))
-x0 = float(st.number_input("Enter x_Si_raman_shift1: ", value=Raman_shift_Si))
+x0 = float(st.number_input("Enter x_Si_raman_shift1: ", value=Raman_shift_Si+1))
 lr.add_data(x0, y0)
 
-y = st.number_input("Enter y_zero_coeff2: ", value=830, key=f"y_{len(lr.y)}")
-x = st.number_input("Enter x_Si_raman_shift2: ", value=Raman_shift_Si, key=f"x_{len(lr.X)}")
+y = st.number_input("Enter y_zero_coeff2: ", value=831, key=f"y_{len(lr.y)}")
+x = st.number_input("Enter x_Si_raman_shift2: ", value=Raman_shift_Si-1, key=f"x_{len(lr.X)}")
 lr.add_data(x, y)
 lr.fit()
 xt = 520

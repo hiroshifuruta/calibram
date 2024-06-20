@@ -27,17 +27,15 @@ lr = LinearRegression()
 st.write("target value Raman_shift_Si = 520")
 Raman_shift_Si = 520
 
-y0 = float(st.number_input("Enter y_zero_coeff: "), value=0.0)
-x0 = float(st.number_input("Enter x_Si_raman_shift: "), value=Raman_shift_Si)
+y0 = float(st.number_input("Enter y_zero_coeff1: ", value=830))
+x0 = float(st.number_input("Enter x_Si_raman_shift1: ", value=Raman_shift_Si))
 lr.add_data(x0, y0)
 
-while True:
-    y = float(st.number_input("Enter y_zero_coeff: "))
-    if(y == 0 or y == ""):
-        break
-    x = float(st.number_input("Enter x_Si_raman_shift: "))
-    lr.add_data(x, y)
-    lr.fit()
-    xt = 520
-    yt = lr.predict(xt)
-    st.write(f"Estimated yt_Zero_coeff: {yt:.2f}")
+y = st.number_input("Enter y_zero_coeff2: ", value=830, key=f"y_{len(lr.y)}")
+x = st.number_input("Enter x_Si_raman_shift2: ", value=Raman_shift_Si, key=f"x_{len(lr.X)}")
+lr.add_data(x, y)
+lr.fit()
+xt = 520
+yt = lr.predict(xt)
+st.write(f"Estimated yt_Zero_coeff: {yt:.2f}")
+st.table(lr.beta)
